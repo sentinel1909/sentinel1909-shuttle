@@ -1,10 +1,24 @@
 # PowerShell install script - installs the latest version of cargo-shuttle
 
+Write-Host @"
+     _           _   _   _
+ ___| |__  _   _| |_| |_| | ___
+/ __| '_ \| | | | __| __| |/ _ \
+\__ \ | | | |_| | |_| |_| |  __/
+|___/_| |_|\__,_|\__|\__|_|\___|
+
+https://www.shuttle.rs
+https://github.com/shuttle-hq/shuttle
+
+Please file an issue if you encounter any problems!
+===================================================
+"@
+
 $ErrorActionPreference = "Stop"
 
 if (Get-Command -CommandType Application -ErrorAction SilentlyContinue cargo-binstall.exe) {
 	Write-Host "Installing cargo-shuttle using cargo binstall"
-	cargo-binstall.exe cargo-shuttle
+	cargo-binstall.exe cargo-shuttle -y
 	if ($?) {
 		Write-Host "cargo-shuttle installed" -ForegroundColor Green
 		[Environment]::Exit(0)
